@@ -12,8 +12,8 @@
       --border: rgba(0,0,0,.12);
       --shadow: 0 10px 30px rgba(0,0,0,.10);
 
-      
-      --accent:#5B0A3A;            
+      /* PDF palette */
+      --accent:#5B0A3A;            /* burgundy */
       --muted: rgba(0,0,0,.65);
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
     }
@@ -261,7 +261,7 @@
           </div>
         </div>
 
-        
+        <!-- Final image option -->
         <div class="section">
           <h2>Final Image (after Text Block 3)</h2>
 
@@ -305,24 +305,24 @@
       .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
       .replaceAll('"',"&quot;").replaceAll("'","&#039;");
 
-    
+    // Chart constants
     const CHART_H = 260;
 
-    
+    // PDF palette
     const COLORS = {
       emailOuterBg: "#f3f3f3",
-      containerBg:  "#F6F2EA",   // warm off-white page
-      headerBg:     "#F04C66",   // pink header
-      headerText:   "#FFFFFF",   // white title text
-      bandBg:       "#F7DDE1",   // light pink band
-      burgundy:     "#5B0A3A",   // main text + bars
-      grid:         "#D9D1C8"    // warm gray gridlines
+      containerBg:  "#F6F2EA",
+      headerBg:     "#F04C66",
+      headerText:   "#FFFFFF",
+      bandBg:       "#F7DDE1",
+      burgundy:     "#5B0A3A",
+      grid:         "#D9D1C8"
     };
 
     // In-memory uploaded images (Data URIs)
     let uploadedLogoDataUri = "";
     let uploadedAvatarDataUri = "";
-    let uploadedFinalImageDataUri = ""; 
+    let uploadedFinalImageDataUri = "";
 
     function barHeights(pct){
       const p = clamp(pct, 0, 100) / 100;
@@ -363,14 +363,14 @@
       return $("avatarUrl").value || "";
     }
 
-    function pickFinalImageSrc(){ 
+    function pickFinalImageSrc(){
       if (uploadedFinalImageDataUri) return uploadedFinalImageDataUri;
       return $("finalImageUrl").value || "";
     }
 
     function formatTextBlock(raw){
       const s = (raw || "").trim();
-      if (!s) return ""; 
+      if (!s) return "";
       return escapeHtml(s).replaceAll("\\n","<br>");
     }
 
@@ -384,7 +384,7 @@
 </tr>`;
     }
 
-    function finalImageRow(src){ 
+    function finalImageRow(src){
       const s = (src || "").trim();
       if (!s) return "";
       return `
@@ -523,6 +523,7 @@
             <td class="pad" style="padding:10px 34px 20px 34px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
+                  <!-- Y axis -->
                   <td valign="top" style="width:64px; font-family: Montserrat, Arial, Helvetica, sans-serif; color:${COLORS.burgundy}; font-weight:900;">
                     <table role="presentation" width="64" cellpadding="0" cellspacing="0" border="0">
                       <tr><td style="font-size:16px; line-height:16px; padding-top:0;">100%</td></tr>
@@ -534,17 +535,12 @@
                     </table>
                   </td>
 
+                  <!-- Plot area -->
                   <td valign="top" style="padding-left:10px;">
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                      <tr><td style="border-top:2px solid ${COLORS.grid}; height:52px; line-height:52px;">&nbsp;</td></tr>
-                      <tr><td style="border-top:2px solid ${COLORS.grid}; height:52px; line-height:52px;">&nbsp;</td></tr>
-                      <tr><td style="border-top:2px solid ${COLORS.grid}; height:52px; line-height:52px;">&nbsp;</td></tr>
-                      <tr><td style="border-top:2px solid ${COLORS.grid}; height:52px; line-height:52px;">&nbsp;</td></tr>
-                      <tr><td style="border-top:2px solid ${COLORS.grid}; height:52px; line-height:52px;">&nbsp;</td></tr>
-
                       <tr>
-                        <td style="padding-top:0;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:-${CHART_H}px;">
+                        <td style="height:${CHART_H}px; vertical-align:bottom;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                               ${barCell(data.bars[0].pct, b1.spacer, b1.bar)}
                               ${barCell(data.bars[1].pct, b2.spacer, b2.bar)}
@@ -560,7 +556,6 @@
                           </table>
                         </td>
                       </tr>
-
                     </table>
                   </td>
                 </tr>
@@ -571,7 +566,7 @@
           <!-- Text Block 3 -->
           ${textBlockRow(tb3)}
 
-          <!-- NEW: Final Image (after Text Block 3) -->
+          <!-- Final Image -->
           ${finalImageRow(finalImg)}
 
           <!-- Bottom padding -->
@@ -595,7 +590,7 @@
         textBlock1: $("textBlock1").value || "",
         textBlock2: $("textBlock2").value || "",
         textBlock3: $("textBlock3").value || "",
-        finalImageSrc: pickFinalImageSrc(), 
+        finalImageSrc: pickFinalImageSrc(),
         invited: clamp($("invited").value, 0, 999999999),
         attendance: clamp($("attendance").value, 0, 999999999),
         bars: [
@@ -614,7 +609,6 @@
       $("iframePreview").srcdoc = html;
     }
 
-    
     function fileToDataUri(file){
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -624,7 +618,6 @@
       });
     }
 
-    
     $("logoUpload").addEventListener("change", async (e) => {
       const file = e.target.files?.[0];
       if (!file) return;
@@ -643,7 +636,6 @@
       generate();
     });
 
-    
     $("finalImageUpload").addEventListener("change", async (e) => {
       const file = e.target.files?.[0];
       if (!file) return;
@@ -667,7 +659,6 @@
       generate();
     });
 
-    
     $("clearFinalImage").addEventListener("click", () => {
       uploadedFinalImageDataUri = "";
       $("finalImageUpload").value = "";
@@ -675,7 +666,6 @@
       generate();
     });
 
-    
     [
       "title","logoUrl","avatarUrl","training","enabler",
       "textBlock1","textBlock2","textBlock3",
@@ -684,7 +674,6 @@
       "b1Label","b1Pct","b2Label","b2Pct","b3Label","b3Pct","b4Label","b4Pct"
     ].forEach(id => $(id).addEventListener("input", generate));
 
-    
     $("form").addEventListener("submit", (e) => { e.preventDefault(); generate(); });
 
     $("copyBtn").addEventListener("click", async () => {
@@ -698,7 +687,6 @@
       }
     });
 
-   
     $("showPreview").addEventListener("click", () => {
       $("showPreview").classList.add("primary");
       $("showHtml").classList.remove("primary");
@@ -712,7 +700,6 @@
       $("htmlOut").style.display = "";
     });
 
-    
     generate();
   </script>
 </body>
