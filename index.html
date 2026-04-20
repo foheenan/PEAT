@@ -11,24 +11,88 @@
       --card:#fff;
       --border: rgba(0,0,0,.12);
       --shadow: 0 10px 30px rgba(0,0,0,.10);
-
-      /* PDF palette */
-      --accent:#5B0A3A;            /* burgundy */
+      --accent:#5B0A3A;
       --muted: rgba(0,0,0,.65);
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
     }
+
     *{ box-sizing:border-box; }
-    body{ margin:0; background:var(--bg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0b0b0b; }
-    .app{ display:grid; grid-template-columns: 380px 1fr; gap:16px; padding:16px; align-items:start; min-height:100vh; }
-    .panel, .preview{ background:var(--card); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); }
-    .panel{ padding:16px; position:sticky; top:16px; height: calc(100vh - 32px); overflow:auto; }
-    h1{ margin:0 0 6px 0; font-size:16px; letter-spacing:.4px; text-transform:uppercase; color:var(--accent); }
-    .sub{ margin:0 0 12px 0; color:var(--muted); font-size:12px; line-height:1.35; }
-    .section{ border-top:1px solid rgba(0,0,0,.08); padding-top:12px; margin-top:12px; }
-    .section h2{ margin:0 0 10px 0; font-size:12px; letter-spacing:.5px; text-transform:uppercase; }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:#0b0b0b;
+    }
+
+    .app{
+      display:grid;
+      grid-template-columns: 380px 1fr;
+      gap:16px;
+      padding:16px;
+      align-items:start;
+      min-height:100vh;
+    }
+
+    .panel, .preview{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+
+    .panel{
+      padding:16px;
+      position:sticky;
+      top:16px;
+      height: calc(100vh - 32px);
+      overflow:auto;
+    }
+
+    h1{
+      margin:0 0 6px 0;
+      font-size:16px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    .sub{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+
+    .section{
+      border-top:1px solid rgba(0,0,0,.08);
+      padding-top:12px;
+      margin-top:12px;
+    }
+
+    .section h2{
+      margin:0 0 10px 0;
+      font-size:12px;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+    }
+
     .field{ margin-bottom:10px; }
-    label{ display:block; font-size:11px; letter-spacing:.35px; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:6px; }
-    input[type="text"], input[type="number"], input[type="file"], textarea{
+
+    label{
+      display:block;
+      font-size:11px;
+      letter-spacing:.35px;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea{
       width:100%;
       padding:10px 11px;
       border-radius:12px;
@@ -38,12 +102,31 @@
       outline:none;
       background:#fff;
     }
-    textarea{ min-height: 92px; resize: vertical; line-height: 1.35; }
 
-    input:focus, textarea:focus{ border-color: rgba(91,10,58,.55); box-shadow:0 0 0 4px rgba(91,10,58,.10); }
+    textarea{
+      min-height: 92px;
+      resize: vertical;
+      line-height: 1.35;
+    }
 
-    .row{ display:grid; grid-template-columns: 1fr 110px; gap:10px; }
-    .btns{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+    input:focus, textarea:focus{
+      border-color: rgba(91,10,58,.55);
+      box-shadow:0 0 0 4px rgba(91,10,58,.10);
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 110px;
+      gap:10px;
+    }
+
+    .btns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
     button{
       border:1px solid rgba(0,0,0,.16);
       background:#fff;
@@ -56,10 +139,28 @@
       text-transform:uppercase;
       cursor:pointer;
     }
-    button.primary{ background:var(--accent); color:#fff; border-color:transparent; }
+
+    button.primary{
+      background:var(--accent);
+      color:#fff;
+      border-color:transparent;
+    }
+
     button:active{ transform: translateY(1px); }
-    .hint{ font-size:11px; color:var(--muted); line-height:1.35; margin-top:6px; }
-    .mini{ font-size:11px; color:var(--muted); margin-top:6px; }
+
+    .hint{
+      font-size:11px;
+      color:var(--muted);
+      line-height:1.35;
+      margin-top:6px;
+    }
+
+    .mini{
+      font-size:11px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
     .img-preview{
       margin-top:8px;
       width: 100%;
@@ -69,6 +170,7 @@
       padding:8px;
       background:#fff;
     }
+
     .img-preview img{
       width:100%;
       height:auto;
@@ -78,7 +180,14 @@
     }
 
     .preview{ padding:16px; }
-    .tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+
+    .tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+
     .frame{
       width:100%;
       height: 720px;
@@ -86,6 +195,7 @@
       border-radius:12px;
       background:#fff;
     }
+
     #htmlOut{
       width:100%;
       height:720px;
@@ -114,6 +224,7 @@
       <form id="form">
         <div class="section">
           <h2>Header</h2>
+
           <div class="field">
             <label for="title">Main title (use line breaks with \n)</label>
             <input id="title" name="title" type="text" value="LIVE SESSION\nATTENDANCE\nTRACKER">
@@ -162,41 +273,42 @@
             <label for="training">Training line</label>
             <input id="training" name="training" type="text" value="TRAINING: COMPLIANCE CONCORRENCIAL">
           </div>
+
           <div class="field">
             <label for="enabler">Enabler line</label>
             <input id="enabler" name="enabler" type="text" value="ENABLER - NADIA MACHADO">
           </div>
         </div>
 
-        <!-- Text box 1 -->
         <div class="section">
           <h2>Text Block 1 (between Band and KPIs)</h2>
           <div class="field">
             <label for="textBlock1">Content (use line breaks with \n)</label>
-            <textarea id="textBlock1" placeholder="Type your message..."></textarea>
+            <textarea id="textBlock1" placeholder="Type your message...">This report provides an overview of the OFF PEAK training for the Wishlist Team in BR, held on April 16th 2026. The session had a total duration of 60 minutes. It is important to highlight that the information and data contained in this report refer exclusively to the mandatory audience.
+
+To view the detailed data, access the spreadsheet here.</textarea>
           </div>
         </div>
 
         <div class="section">
           <h2>KPIs</h2>
+
           <div class="field">
             <label for="invited">Total invited</label>
             <input id="invited" name="invited" type="number" min="0" value="155">
           </div>
+
           <div class="field">
             <label for="attendance">Total attendance</label>
             <input id="attendance" name="attendance" type="number" min="0" value="118">
           </div>
+
           <p class="hint">Avg % is calculated automatically: attendance ÷ invited.</p>
         </div>
 
-        <!-- Text box 2 -->
         <div class="section">
-          <h2>Text Block 2 (between KPIs and Chart)</h2>
-          <div class="field">
-            <label for="textBlock2">Content (use line breaks with \n)</label>
-            <textarea id="textBlock2" placeholder="Type your message..."></textarea>
-          </div>
+          <h2>Training Guidelines Section</h2>
+          <p class="hint">This section is now fixed to match the screenshot exactly.</p>
         </div>
 
         <div class="section">
@@ -205,7 +317,7 @@
           <div class="row">
             <div class="field">
               <label for="b1Label">Bar 1 label</label>
-              <input id="b1Label" type="text" value="Sales">
+              <input id="b1Label" type="text" value="Wishlist">
             </div>
             <div class="field">
               <label for="b1Pct">%</label>
@@ -216,7 +328,7 @@
           <div class="row">
             <div class="field">
               <label for="b2Label">Bar 2 label</label>
-              <input id="b2Label" type="text" value="Client Success">
+              <input id="b2Label" type="text" value="Partner Sales">
             </div>
             <div class="field">
               <label for="b2Pct">%</label>
@@ -227,7 +339,7 @@
           <div class="row">
             <div class="field">
               <label for="b3Label">Bar 3 label</label>
-              <input id="b3Label" type="text" value="Indirect">
+              <input id="b3Label" type="text" value="Partner Success">
             </div>
             <div class="field">
               <label for="b3Pct">%</label>
@@ -238,7 +350,7 @@
           <div class="row">
             <div class="field">
               <label for="b4Label">Bar 4 label</label>
-              <input id="b4Label" type="text" value="WE">
+              <input id="b4Label" type="text" value="PRG">
             </div>
             <div class="field">
               <label for="b4Pct">%</label>
@@ -252,16 +364,17 @@
           </div>
         </div>
 
-        <!-- Text box 3 -->
         <div class="section">
           <h2>Text Block 3 (after Chart)</h2>
           <div class="field">
             <label for="textBlock3">Content (use line breaks with \n)</label>
-            <textarea id="textBlock3" placeholder="Type your message..."></textarea>
+            <textarea id="textBlock3" placeholder="Type your message...">In case of questions regarding the training, please contact Fernanda Zloccowick. If your question is about training attendance, please reach out to Gaby Vergara.
+
+Thank you,
+Partnership Enablement Team</textarea>
           </div>
         </div>
 
-        <!-- Final image option -->
         <div class="section">
           <h2>Final Image (after Text Block 3)</h2>
 
@@ -283,7 +396,6 @@
             <div class="hint">Tip: use a hosted URL for maximum email compatibility.</div>
           </div>
         </div>
-
       </form>
     </aside>
 
@@ -302,13 +414,14 @@
     const $ = (id) => document.getElementById(id);
     const clamp = (n,min,max)=>Math.max(min, Math.min(max, Number(n)||0));
     const escapeHtml = (s)=>String(s)
-      .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
 
-    // Chart constants
     const CHART_H = 260;
 
-    // PDF palette
     const COLORS = {
       emailOuterBg: "#f3f3f3",
       containerBg:  "#F6F2EA",
@@ -316,10 +429,15 @@
       headerText:   "#FFFFFF",
       bandBg:       "#F7DDE1",
       burgundy:     "#5B0A3A",
-      grid:         "#D9D1C8"
+      grid:         "#D9D1C8",
+      black:        "#000000",
+      creamBlock:   "#F3EFE8",
+      greenHi:      "#95BE73",
+      yellowHi:     "#F2C94C",
+      redHi:        "#E66868",
+      linkBlue:     "#1E5ED8"
     };
 
-    // In-memory uploaded images (Data URIs)
     let uploadedLogoDataUri = "";
     let uploadedAvatarDataUri = "";
     let uploadedFinalImageDataUri = "";
@@ -348,7 +466,7 @@
 
     function labelCell(label){
       return `
-<td align="center" style="padding-top:10px; font-family: Montserrat, Arial, Helvetica, sans-serif; font-weight:900; color:${COLORS.burgundy}; font-size:16px;">
+<td align="center" class="bar-label" style="padding-top:10px; font-family: Montserrat, Arial, Helvetica, sans-serif; font-weight:900; color:${COLORS.burgundy}; font-size:16px;">
   ${escapeHtml(label)}
 </td>`;
     }
@@ -371,15 +489,66 @@
     function formatTextBlock(raw){
       const s = (raw || "").trim();
       if (!s) return "";
-      return escapeHtml(s).replaceAll("\\n","<br>");
+      return escapeHtml(s).replace(/\n/g, "<br>");
     }
 
     function textBlockRow(html){
       if (!html) return "";
       return `
 <tr>
-  <td class="pad" style="padding:16px 34px 0 34px; font-family: Montserrat, Arial, Helvetica, sans-serif; color:${COLORS.burgundy}; font-size:14px; line-height:20px; font-weight:600;">
+  <td class="pad" style="padding:16px 34px 0 34px; font-family: Montserrat, Arial, Helvetica, sans-serif; color:${COLORS.black}; font-size:14px; line-height:20px; font-weight:600;">
     ${html}
+  </td>
+</tr>`;
+    }
+
+    function trainingGuidelinesRow(){
+      return `
+<tr>
+  <td class="pad" style="padding:18px 34px 0 34px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${COLORS.creamBlock};">
+      <tr>
+        <td style="font-family: Arial, Helvetica, sans-serif; color:${COLORS.black};">
+
+          <div style="color:${COLORS.burgundy}; font-size:26px; line-height:30px; font-weight:800; margin:0 0 34px 0;">
+            Training Management Process Guidelines
+          </div>
+
+          <div style="font-size:19px; line-height:29px; font-weight:800; color:${COLORS.black}; margin:0 0 2px 0;">
+            For clarity, we are using the following criteria for the Training Management Process:
+          </div>
+
+          <div style="font-size:19px; line-height:29px; font-weight:800; color:${COLORS.black}; margin:0;">
+            <span style="background:${COLORS.greenHi}; padding:1px 4px 2px 4px; display:inline-block; line-height:1.05;">Completed:</span>
+            Attended 80% or more of the session. No additional steps are needed.
+          </div>
+
+          <div style="font-size:19px; line-height:29px; font-weight:800; color:${COLORS.black}; margin:0;">
+            <span style="background:${COLORS.yellowHi}; padding:1px 4px 2px 4px; display:inline-block; line-height:1.05;">Started but not finished:</span>
+            Attended the session, but for less than 80% of the total duration. It is important to watch the recording to catch up on what was missed.
+          </div>
+
+          <div style="font-size:19px; line-height:29px; font-weight:800; color:${COLORS.black}; margin:0;">
+            <span style="background:${COLORS.redHi}; padding:1px 4px 2px 4px; display:inline-block; line-height:1.05;">Not Started:</span>
+            Did not attend the live training, or was present for less than 20% of the total session.
+          </div>
+
+          <div style="height:34px; line-height:34px; font-size:34px;">&nbsp;</div>
+
+          <div style="font-size:19px; line-height:31px; font-weight:800; font-style:italic; color:${COLORS.black}; margin:0;">
+            Note: Participants marked as "Started but not finished" and "Not started" must watch the recording on Wellversed.
+          </div>
+
+          <div style="height:34px; line-height:34px; font-size:34px;">&nbsp;</div>
+
+          <div style="font-size:19px; line-height:31px; font-weight:800; font-style:italic; color:${COLORS.black}; margin:0;">
+            Find the Wellhub Wiki page with all the materials:
+            <a href="#" style="color:${COLORS.linkBlue}; text-decoration:underline; font-weight:800; font-style:italic;">HERE</a>
+          </div>
+
+        </td>
+      </tr>
+    </table>
   </td>
 </tr>`;
     }
@@ -403,12 +572,10 @@
       const b3 = barHeights(data.bars[2].pct);
       const b4 = barHeights(data.bars[3].pct);
 
-      const titleHtml = escapeHtml(data.title).replaceAll("\\n","<br>");
+      const titleHtml = escapeHtml(data.title).replace(/\n/g, "<br>");
 
       const tb1 = formatTextBlock(data.textBlock1);
-      const tb2 = formatTextBlock(data.textBlock2);
       const tb3 = formatTextBlock(data.textBlock3);
-
       const finalImg = data.finalImageSrc || "";
 
       return `<!doctype html>
@@ -427,7 +594,6 @@
     .pad{ padding-left:18px !important; padding-right:18px !important; }
     .title{ font-size:40px !important; line-height:40px !important; }
     .kpi-col{ display:block !important; width:100% !important; }
-    .kpi-spacer{ height:18px !important; }
     .bar-label{ font-size:14px !important; }
   }
 </style>
@@ -438,7 +604,6 @@
       <td align="center" style="padding:24px 12px;">
         <table role="presentation" class="container" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px; max-width:640px; background:${COLORS.containerBg};">
 
-          <!-- Header -->
           <tr>
             <td class="pad" style="background:${COLORS.headerBg}; padding:34px 34px 28px 34px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -449,22 +614,19 @@
                     </div>
                   </td>
                   <td align="right" valign="top" style="width:170px;">
-                    <img src="${escapeHtml(data.logoSrc)}" width="150" height="150" alt="Logo"
-                      style="display:block; width:150px; height:150px; object-fit:contain;">
+                    <img src="${escapeHtml(data.logoSrc)}" width="150" height="150" alt="Logo" style="display:block; width:150px; height:150px; object-fit:contain;">
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Band -->
           <tr>
             <td class="pad" style="background:${COLORS.bandBg}; padding:18px 34px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td valign="middle" style="width:86px;">
-                    <img src="${escapeHtml(data.avatarSrc)}" width="72" height="72" alt="Enabler"
-                      style="display:block; width:72px; height:72px; border-radius:72px; object-fit:cover;">
+                    <img src="${escapeHtml(data.avatarSrc)}" width="72" height="72" alt="Enabler" style="display:block; width:72px; height:72px; border-radius:72px; object-fit:cover;">
                   </td>
                   <td valign="middle" style="font-family: Montserrat, Arial, Helvetica, sans-serif;">
                     <div style="color:${COLORS.burgundy}; font-size:20px; line-height:24px; font-weight:800; text-transform:uppercase; letter-spacing:0.6px;">
@@ -479,10 +641,8 @@
             </td>
           </tr>
 
-          <!-- Text Block 1 -->
           ${textBlockRow(tb1)}
 
-          <!-- KPIs -->
           <tr>
             <td class="pad" style="padding:24px 34px 10px 34px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -512,18 +672,14 @@
             </td>
           </tr>
 
-          <!-- Text Block 2 -->
-          ${textBlockRow(tb2)}
+          ${trainingGuidelinesRow()}
 
-          <!-- Spacer -->
           <tr><td style="padding:0 34px;"><div style="height:18px; line-height:18px;">&nbsp;</div></td></tr>
 
-          <!-- Chart -->
           <tr>
             <td class="pad" style="padding:10px 34px 20px 34px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <!-- Y axis -->
                   <td valign="top" style="width:64px; font-family: Montserrat, Arial, Helvetica, sans-serif; color:${COLORS.burgundy}; font-weight:900;">
                     <table role="presentation" width="64" cellpadding="0" cellspacing="0" border="0">
                       <tr><td style="font-size:16px; line-height:16px; padding-top:0;">100%</td></tr>
@@ -535,7 +691,6 @@
                     </table>
                   </td>
 
-                  <!-- Plot area -->
                   <td valign="top" style="padding-left:10px;">
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
@@ -563,13 +718,9 @@
             </td>
           </tr>
 
-          <!-- Text Block 3 -->
           ${textBlockRow(tb3)}
-
-          <!-- Final Image -->
           ${finalImageRow(finalImg)}
 
-          <!-- Bottom padding -->
           <tr><td style="padding:0 34px 24px 34px;"><div style="height:1px; line-height:1px;">&nbsp;</div></td></tr>
 
         </table>
@@ -588,7 +739,6 @@
         training: $("training").value || "",
         enabler: $("enabler").value || "",
         textBlock1: $("textBlock1").value || "",
-        textBlock2: $("textBlock2").value || "",
         textBlock3: $("textBlock3").value || "",
         finalImageSrc: pickFinalImageSrc(),
         invited: clamp($("invited").value, 0, 999999999),
@@ -597,7 +747,7 @@
           { label: $("b1Label").value || "", pct: clamp($("b1Pct").value, 0, 100) },
           { label: $("b2Label").value || "", pct: clamp($("b2Pct").value, 0, 100) },
           { label: $("b3Label").value || "", pct: clamp($("b3Pct").value, 0, 100) },
-          { label: $("b4Label").value || "", pct: clamp($("b4Pct").value, 0, 100) },
+          { label: $("b4Label").value || "", pct: clamp($("b4Pct").value, 0, 100) }
         ]
       };
     }
@@ -668,20 +818,23 @@
 
     [
       "title","logoUrl","avatarUrl","training","enabler",
-      "textBlock1","textBlock2","textBlock3",
+      "textBlock1","textBlock3",
       "finalImageUrl",
       "invited","attendance",
       "b1Label","b1Pct","b2Label","b2Pct","b3Label","b3Pct","b4Label","b4Pct"
     ].forEach(id => $(id).addEventListener("input", generate));
 
-    $("form").addEventListener("submit", (e) => { e.preventDefault(); generate(); });
+    $("form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      generate();
+    });
 
     $("copyBtn").addEventListener("click", async () => {
       if (!$("htmlOut").value) generate();
       try{
         await navigator.clipboard.writeText($("htmlOut").value);
         $("copyBtn").textContent = "Copied!";
-        setTimeout(()=> $("copyBtn").textContent = "Copy Email HTML", 1200);
+        setTimeout(() => $("copyBtn").textContent = "Copy Email HTML", 1200);
       }catch(err){
         alert("Copy failed. Switch to the HTML tab and copy manually.");
       }
@@ -693,6 +846,7 @@
       $("iframePreview").style.display = "";
       $("htmlOut").style.display = "none";
     });
+
     $("showHtml").addEventListener("click", () => {
       $("showHtml").classList.add("primary");
       $("showPreview").classList.remove("primary");
